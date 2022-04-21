@@ -1,11 +1,5 @@
 package com.nttdata.transaction.document;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Date;
-
-import javax.annotation.PostConstruct;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,8 +20,10 @@ public class Transaction {
     private Integer typeCard;
     private String codeClient;
     private String numberAccount;
+    private Currency currency;
     private TypeOperation typeOperation;
-    private DestinationAccount destinationAccount;
+    private Account originAccount;
+    private Account destinationAccount;
     private Double amount;
     private LocalDateTime dateTransaction;
 
