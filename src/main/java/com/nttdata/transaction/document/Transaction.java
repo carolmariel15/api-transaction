@@ -1,4 +1,4 @@
-package com.nttdata.transaction.model;
+package com.nttdata.transaction.document;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,21 +21,15 @@ import lombok.Setter;
 public class Transaction {
 	@Id
 	private String id;
-    private TypeTransaction transaction;
+    private TypeTransaction typeTransaction;
     private String numberCard;
     private Integer typeCard;
     private String codeClient;
     private String numberAccount;
-    private TypeOperation operation;
+    private TypeOperation typeOperation;
     private DestinationAccount destinationAccount;
     private Double amount;
-    private LocalDateTime dateTransaction= LocalDateTime.of(LocalDate.now(), LocalTime.now());;
-
-    @PostConstruct
-    public void transactionInit(){
-    	
-    	this.dateTransaction= LocalDateTime.of(LocalDate.now(), LocalTime.now());
-    }
+    private LocalDateTime dateTransaction;
 
     
 }

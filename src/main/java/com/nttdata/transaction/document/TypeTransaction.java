@@ -1,4 +1,4 @@
-package com.nttdata.transaction.model;
+package com.nttdata.transaction.document;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class TypeTransaction {
- private String codeTransaction;
+ private Integer id;
  private String description;
 }

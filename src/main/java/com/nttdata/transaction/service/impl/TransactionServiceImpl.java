@@ -1,10 +1,11 @@
-package com.nttdata.transaction.service;
+package com.nttdata.transaction.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nttdata.transaction.dao.ITransactionDao;
-import com.nttdata.transaction.model.Transaction;
+import com.nttdata.transaction.document.Transaction;
+import com.nttdata.transaction.service.ITransactionService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -41,11 +42,11 @@ public class TransactionServiceImpl implements ITransactionService {
     
 	// se filtra solo las transacciones por tipo (prestamos,tarjetas de cretidos, cuentas)
 	@Override
-	public Flux<Transaction> findAllByCodeClient(String codeClient,String codeTransaction) {
+	public Flux<Transaction> findByCodeClientAndTypeTransactionId(String codeClient,Integer id) {
 		// TODO Auto-generated method stub
-		return transactionDao.findAllByCodeClient(codeClient)
-				.filter(t->t.getTransaction().getCodeTransaction().equals(codeTransaction))
-				;
+		return transactionDao.findByCodeClientAndTypeTransactionId(codeClient,id);
+
+				
 	}
 	
 }

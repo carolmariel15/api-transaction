@@ -1,6 +1,6 @@
 package com.nttdata.transaction.service;
 
-import com.nttdata.transaction.model.Transaction;
+import com.nttdata.transaction.document.Transaction;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -15,7 +15,7 @@ public interface ITransactionService {
 	
 	public  Mono<Void> delete(Transaction transaction);
 	
-	public Flux<Transaction> findAllByCodeClient(String codeClient,String codeTransaction);
+	public Flux<Transaction> findByCodeClientAndTypeTransactionId(String codeClient,Integer id);
 	
 
 }
