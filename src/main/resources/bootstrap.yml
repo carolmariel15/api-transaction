@@ -1,0 +1,24 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: api-transaction
+  data:
+    mongodb:
+      database: dbTransaction
+      port: 27017
+      host: localhost
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
