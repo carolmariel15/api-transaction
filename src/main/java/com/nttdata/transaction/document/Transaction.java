@@ -1,30 +1,36 @@
 package com.nttdata.transaction.document;
-import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Unwrapped.Nullable;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "transacctions")
 public class Transaction {
 	@Id
 	private String id;
-    private TypeTransaction typeTransaction;
+    private Integer idTypeAccount;
+    @Nullable
     private String numberCard;
     private Integer typeCard;
     private String codeClient;
+    @Nullable
     private String numberAccount;
     private Currency currency;
     private TypeOperation typeOperation;
+    @Nullable
     private Account originAccount;
+    @Nullable
     private Account destinationAccount;
     private Double amount;
+    @Nullable
     private LocalDateTime dateTransaction;
 
     
